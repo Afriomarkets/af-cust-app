@@ -1327,12 +1327,12 @@ class _ExplorerOverviewState extends State<ExplorerOverview> {
           // ── New immersive sliver hero (seller_details pattern) ──────────────
           _buildExplorerSliverHero(),
           // ── Category chips immediately below the hero ───────────────────────
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 8),
-              child: _buildHeroCategoryChipsSliver(),
-            ),
-          ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(top: 16, bottom: 8),
+          //     child: _buildHeroCategoryChipsSliver(),
+          //   ),
+          // ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
 
           // ─── Phase 7 Contextual Slivers ───

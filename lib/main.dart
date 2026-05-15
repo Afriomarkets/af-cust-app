@@ -54,16 +54,15 @@ main() async {
   app_language_rtl.load();
   app_theme_mode.load();
 
-  // Supabase and Region initialization.
-  // Wrapped in try-catch: an uncaught exception here (bad key, no network,
-  // missing URL scheme) would crash the process before runApp on IPA builds.
-  try {
-    await SupabaseService.initialize();
-  } catch (e, st) {
-    // Log and continue — the app can still function without Supabase
-    // for guest browsing; auth-gated features will fail gracefully later.
-    debugPrint('[Supabase] initialization failed: $e\n$st');
-  }
+  // Supabase and Region initialization run asynchronously so they don't
+  // block runApp() and trigger an iOS watchdog kill if initialization hangs.
+  Future.microtask(() async {
+    try {
+      await SupabaseService.initialize();
+    } catch (e, st) {
+      debugPrint('[Supabase] initialization failed: $e\n$st');
+    }
+  });
   RegionService.detectAndSetRegion();
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

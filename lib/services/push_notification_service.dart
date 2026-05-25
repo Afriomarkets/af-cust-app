@@ -9,11 +9,18 @@ import 'package:afriomarkets_cust_app/repositories/profile_repository.dart';
 import 'package:one_context/one_context.dart';
 import 'package:afriomarkets_cust_app/custom/toast_component.dart';
 
-final FirebaseMessaging _fcm = FirebaseMessaging.instance;
-
 class PushNotificationService {
   Future initialise() async {
-    await _fcm.requestPermission(
+    try {
+      if (Firebase.apps.isEmpty) {
+        await Firebase.initializeApp();
+      }
+    } catch (e) {
+      print("Firebase initialization error: $e");
+    }
+
+    final FirebaseMessaging fcm = FirebaseMessaging.instance;
+    await fcm.requestPermission(
       alert: true,
       announcement: false,
       badge: true,
@@ -22,7 +29,7 @@ class PushNotificationService {
       provisional: false,
       sound: true,
     );
-    String? fcmToken = await _fcm.getToken();
+    String? fcmToken = await fcm.getToken();
 
     print("--fcm token--");
     print(fcmToken);

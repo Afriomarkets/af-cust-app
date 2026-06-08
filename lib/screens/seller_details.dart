@@ -274,7 +274,7 @@ class _SellerDetailsState extends State<SellerDetails> with SingleTickerProvider
                   ),
                 ),
                 leading: IconButton(
-                  icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
                   onPressed: () => Navigator.pop(context),
                 ),
                 actions: [

@@ -75,7 +75,8 @@ class _RegionPickerState extends State<RegionPicker> {
       );
       Navigator.of(context).pop(region);
     }
-  }  @override
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -83,7 +84,7 @@ class _RegionPickerState extends State<RegionPicker> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.primaryText(context)),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.primaryText(context)),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Column(

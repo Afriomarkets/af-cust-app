@@ -688,7 +688,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     sellerChatMessageController.clear();
     setState(() {});
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return Chat(
         conversation_id: conversationCreateResponse.conversation_id ?? 0,
         messenger_name: _productDetails?.shop_name ?? "",
@@ -751,7 +751,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         color: Colors.black.withOpacity(0.3),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 20),
+                      child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
                     ),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
@@ -1068,7 +1068,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     const SizedBox(height: 4),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                           return SellerDetails(id: _productDetails.shop_id);
                         }));
                       },
@@ -1151,7 +1151,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     context, gravity: ToastComponent.center);
                 return;
               }
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return VideoDescription(url: _productDetails!.video_link!);
               })).then((value) => onPopped(value));
             },
@@ -1161,7 +1161,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             title: AppLocalizations.of(context)!.product_details_screen_reviews,
             icon: Icons.star_border_rounded,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return ProductReviews(id: widget.id);
               })).then((value) => onPopped(value));
             },
@@ -1171,7 +1171,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             title: AppLocalizations.of(context)!.product_details_screen_seller_policy,
             icon: Icons.gavel_rounded,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return CommonWebviewScreen(
                   url: "${AppConfig.RAW_BASE_URL}/mobile-page/sellerpolicy",
                   page_name: AppLocalizations.of(context)!.product_details_screen_seller_policy,
@@ -1184,7 +1184,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             title: AppLocalizations.of(context)!.product_details_screen_return_policy,
             icon: Icons.assignment_return_rounded,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return CommonWebviewScreen(
                   url: "${AppConfig.RAW_BASE_URL}/mobile-page/returnpolicy",
                   page_name: AppLocalizations.of(context)!.product_details_screen_return_policy,
@@ -1198,7 +1198,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             icon: Icons.support_agent_rounded,
             isLast: true,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return CommonWebviewScreen(
                   url: "${AppConfig.RAW_BASE_URL}/mobile-page/supportpolicy",
                   page_name: AppLocalizations.of(context)!.product_details_screen_support_policy,
@@ -1660,7 +1660,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+        icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Text(

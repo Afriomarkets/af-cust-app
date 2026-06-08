@@ -132,7 +132,7 @@ class _RegistrationState extends State<Registration> {
 
       if (!mounted) return;
       ToastComponent.showDialog('Account created successfully!', context);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Main();
       }));
     }
@@ -527,7 +527,7 @@ class _RegistrationState extends State<Registration> {
                                     fontWeight: FontWeight.w700),
                               ),
                               onPressed: () {
-                                Navigator.push(context,
+                                Navigator.of(context, rootNavigator: true).push(
                                     MaterialPageRoute(builder: (context) {
                                   return Login();
                                 }));

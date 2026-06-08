@@ -23,7 +23,7 @@ class BlogStoryPage extends StatelessWidget {
               icon: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(color: Colors.black.withOpacity(0.3), shape: BoxShape.circle),
-                child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 20),
+                child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),

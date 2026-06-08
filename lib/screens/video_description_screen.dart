@@ -71,7 +71,7 @@ class _VideoDescriptionState extends State<VideoDescription> {
               width: 40,
               height: 40,
               child: IconButton(
-                icon: Icon(Icons.arrow_back, color: MyTheme.white),
+                icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.white),
                 onPressed: () {
                   if (MediaQuery.of(context).orientation ==
                       Orientation.landscape) {

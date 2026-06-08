@@ -102,7 +102,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return StripeScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -116,7 +116,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaypalScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -130,7 +130,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return RazorpayScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -144,7 +144,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaystackScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -158,7 +158,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return IyzicoScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -172,7 +172,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return BkashScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -186,7 +186,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return NagadScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -200,7 +200,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return SslCommerzScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -214,7 +214,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return FlutterwaveScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -228,7 +228,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaytmScreen(
           amount: widget.amount,
           payment_type: "wallet_payment",
@@ -292,7 +292,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

@@ -26,7 +26,7 @@ class MainDrawer extends StatefulWidget {
 class _MainDrawerState extends State<MainDrawer> {
   onTapLogout(context) async {
     AuthHelper().clearUserData();
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return Login();
     }));
   }
@@ -240,7 +240,7 @@ class _MainDrawerState extends State<MainDrawer> {
                         icon: Icons.home_rounded,
                         assetIcon: 'assets/home.png',
                         label: AppLocalizations.of(context)!.main_drawer_home,
-                        onTap: () => Navigator.push(context,
+                        onTap: () => Navigator.of(context, rootNavigator: true).push(
                             MaterialPageRoute(builder: (_) => Main())),
                       ),
                       _menuItem(
@@ -248,8 +248,7 @@ class _MainDrawerState extends State<MainDrawer> {
                         assetIcon: 'assets/language.png',
                         label: AppLocalizations.of(context)!
                             .main_drawer_change_language,
-                        onTap: () => Navigator.push(
-                            context,
+                        onTap: () => Navigator.of(context, rootNavigator: true).push(
                             MaterialPageRoute(
                                 builder: (_) => ChangeLanguage())),
                       ),
@@ -271,8 +270,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           assetIcon: 'assets/order.png',
                           label: AppLocalizations.of(context)!
                               .main_drawer_orders,
-                          onTap: () => Navigator.push(
-                              context,
+                          onTap: () => Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
                                   builder: (_) =>
                                       OrderList(from_checkout: false))),
@@ -282,7 +280,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           assetIcon: 'assets/heart.png',
                           label: AppLocalizations.of(context)!
                               .main_drawer_my_wishlist,
-                          onTap: () => Navigator.push(context,
+                          onTap: () => Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(builder: (_) => Wishlist())),
                         ),
                         _menuItem(
@@ -290,8 +288,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           assetIcon: 'assets/chat.png',
                           label: AppLocalizations.of(context)!
                               .main_drawer_messages,
-                          onTap: () => Navigator.push(
-                              context,
+                          onTap: () => Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
                                   builder: (_) => MessengerList())),
                         ),
@@ -300,7 +297,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           assetIcon: 'assets/wallet.png',
                           label:
                               AppLocalizations.of(context)!.main_drawer_wallet,
-                          onTap: () => Navigator.push(context,
+                          onTap: () => Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(builder: (_) => Wallet())),
                         ),
                       ],
@@ -310,7 +307,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           assetIcon: 'assets/login.png',
                           label:
                               AppLocalizations.of(context)!.main_drawer_login,
-                          onTap: () => Navigator.push(context,
+                          onTap: () => Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(builder: (_) => Login())),
                         ),
                       _divider(),

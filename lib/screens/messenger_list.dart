@@ -128,7 +128,7 @@ class _MessengerListState extends State<MessengerList> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.primaryText(context)),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.primaryText(context)),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -178,7 +178,7 @@ class _MessengerListState extends State<MessengerList> {
   buildMessengerItemCard(index) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
           return Chat(
             conversation_id: _list[index].id,
             messenger_name: _list[index].shop_name,

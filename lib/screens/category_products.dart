@@ -146,7 +146,7 @@ class _CategoryProductsState extends State<CategoryProducts> {
         padding: const EdgeInsets.only(top: 8.0),
         child: Builder(
             builder: (context) => IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
                   onPressed: () => Navigator.of(context).pop(),
                 )),
       ),

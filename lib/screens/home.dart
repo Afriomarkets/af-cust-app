@@ -774,7 +774,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
       leading: widget.show_back_button
           ? IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
               onPressed: () => Navigator.of(context).pop(),
             )
           : IconButton(
@@ -789,7 +789,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
       title: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
             return Filter();
           }));
         },

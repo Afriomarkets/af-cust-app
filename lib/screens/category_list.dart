@@ -120,7 +120,7 @@ class _CategoryListState extends State<CategoryList> {
               )
             : Builder(
                 builder: (context) => IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
@@ -129,7 +129,7 @@ class _CategoryListState extends State<CategoryList> {
         padding: const EdgeInsets.only(top: 12.0),
         child: GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
+            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
               return Filter();
             }));
           },

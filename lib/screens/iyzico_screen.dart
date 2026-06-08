@@ -97,8 +97,7 @@ class _IyzicoScreenState extends State<IyzicoScreen> {
     ToastComponent.showDialog(iyzicoPaymentSuccessResponse.message!, context,
         duration: ToastComponent.lengthLong, gravity: ToastComponent.center);
     if (widget.payment_type == "cart_payment") {
-      Navigator.push(
-          context,
+      Navigator.of(context, rootNavigator: true).push(
           MaterialPageRoute(
               builder: (context) => OrderList(from_checkout: true)));
     } else if (widget.payment_type == "wallet_payment") {
@@ -136,7 +135,7 @@ class _IyzicoScreenState extends State<IyzicoScreen> {
       backgroundColor: Colors.white,
       centerTitle: true,
       leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop()),
       title: Text(AppLocalizations.of(context)!.iyzico_screen_pay_with_iyzico,
           style: TextStyle(fontSize: 16, color: MyTheme.accent_color)),

@@ -138,8 +138,7 @@ class _CartState extends State<Cart> {
           AppLocalizations.of(context)!.cart_screen_cart_empty, context);
       return;
     }
-    Navigator.push(
-      context,
+    Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute(builder: (_) => const MedusaCheckout()),
     ).then((_) => fetchData());
   }

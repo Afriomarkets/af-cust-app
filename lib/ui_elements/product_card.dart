@@ -34,7 +34,7 @@ class _ProductCardState extends State<ProductCard> {
     final isDark = MyTheme.isDark(context);
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
           return ProductDetails(
             id: widget.id ?? 0,
           );

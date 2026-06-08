@@ -69,7 +69,7 @@ class _PasswordForgetState extends State<PasswordForget> {
     } else {
       ToastComponent.showDialog(passwordForgetResponse.message ?? "", context);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PasswordOtp(
           verify_by: _send_code_by,
           email_or_code: _send_code_by == 'email' ? email : _phone,

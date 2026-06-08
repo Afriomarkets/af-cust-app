@@ -134,7 +134,7 @@ class _BrandProductsState extends State<BrandProducts> {
       ),
       leading: Builder(
         builder: (context) => IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

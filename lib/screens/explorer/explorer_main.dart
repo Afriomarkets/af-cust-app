@@ -114,8 +114,7 @@ class _ExplorerMainState extends State<ExplorerMain> {
       return;
     }
 
-    Navigator.push(
-      context,
+    Navigator.of(context, rootNavigator: true).push(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 450),
         reverseTransitionDuration: const Duration(milliseconds: 300),
@@ -324,7 +323,7 @@ class _ExplorerMainState extends State<ExplorerMain> {
       elevation: bgOpacity > 0.6 ? 2 : 0,
       shadowColor: Colors.black.withOpacity(0.12),
       leading: IconButton(
-        icon: Icon(Icons.arrow_back_rounded, color: iconColor),
+        icon: Icon(Icons.arrow_back_ios_new, size: 20, color: iconColor),
         onPressed: () {
           if (!_currentContext.isAtRegionLevel) {
             _onContextChanged(_currentContext.pop());

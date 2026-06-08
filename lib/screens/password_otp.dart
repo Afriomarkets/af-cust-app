@@ -84,7 +84,7 @@ class _PasswordOtpState extends State<PasswordOtp> {
     } else {
       ToastComponent.showDialog(passwordConfirmResponse.message ?? "", context);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Login();
       }));
     }

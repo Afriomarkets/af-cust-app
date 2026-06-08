@@ -23,7 +23,7 @@ class _ShopSquareCardState extends State<ShopSquareCard> {
     
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
           return SellerDetails(
             id: widget.id ?? 0,
           );

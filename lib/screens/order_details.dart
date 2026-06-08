@@ -103,7 +103,7 @@ class _OrderDetailsState extends State<OrderDetails> {
   }
 
   onPressOfflinePaymentButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return Checkout(
         order_id: widget.id,
         list: "offline",
@@ -340,7 +340,7 @@ class _OrderDetailsState extends State<OrderDetails> {
         label: AppLocalizations.of(context)!
             .order_details_screen_refund_snackbar_show_request_list,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
             return RefundRequest();
           })).then((value) {
             onPopped(value);
@@ -368,7 +368,7 @@ class _OrderDetailsState extends State<OrderDetails> {
       onPopInvoked: (didPop) async {
         if (didPop) return;
         if (widget.from_notification || widget.go_back == false) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
             return Main();
           }));
         } else {
@@ -1253,10 +1253,10 @@ class _OrderDetailsState extends State<OrderDetails> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-            icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+            icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
             onPressed: () {
               if (widget.from_notification || widget.go_back == false) {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                   return Main();
                 }));
               } else {

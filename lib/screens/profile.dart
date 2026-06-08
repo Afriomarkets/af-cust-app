@@ -197,7 +197,7 @@ class _ProfileState extends State<Profile> {
                       _buildProfileCard(
                         context,
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                             return const RegionPicker();
                           }));
                         },
@@ -211,7 +211,7 @@ class _ProfileState extends State<Profile> {
                       _buildProfileCard(
                         context,
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                             return OrderList();
                           }));
                         },
@@ -226,7 +226,7 @@ class _ProfileState extends State<Profile> {
                         _buildProfileCard(
                           context,
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                               return Clubpoint();
                             }));
                           },
@@ -241,7 +241,7 @@ class _ProfileState extends State<Profile> {
                         _buildProfileCard(
                           context,
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                               return RefundRequest();
                             }));
                           },
@@ -269,7 +269,7 @@ class _ProfileState extends State<Profile> {
       children: [
         InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
+            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
               return OrderList();
             }));
           },
@@ -341,7 +341,7 @@ class _ProfileState extends State<Profile> {
         ),
         InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
+            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
               return Address();
             }));
           },
@@ -706,7 +706,7 @@ class _ProfileState extends State<Profile> {
                       letterSpacing: 0.5),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                     return Wallet();
                   }));
                 },
@@ -744,7 +744,7 @@ class _ProfileState extends State<Profile> {
         child: widget.show_back_button
             ? Builder(
                 builder: (context) => IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               )

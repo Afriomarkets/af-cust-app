@@ -195,7 +195,7 @@ class _ExplorerDiscoverState extends State<ExplorerDiscover> {
 
   Widget _buildSpotlightCard(SpotlightModel spotlight) {
     return GestureDetector(
-      onTap: () => Navigator.push(context, MaterialPageRoute(
+      onTap: () => Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(
         builder: (_) => StoryViewer(spotlight: spotlight.toMap()),
       )),
       child: Container(

@@ -883,7 +883,7 @@ class _FilterState extends State<Filter> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.arrow_back, color: MyTheme.primaryText(context)),
+            icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.primaryText(context)),
             padding: EdgeInsets.zero,
             onPressed: () => Navigator.of(context).pop(),
           ),

@@ -32,7 +32,7 @@ class _MiniProductCardState extends State<MiniProductCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
           return ProductDetails(id: widget.id ?? 0);
         }));
       },

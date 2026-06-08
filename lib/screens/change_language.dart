@@ -103,7 +103,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
       Provider.of<LocaleProvider>(context, listen: false)
           .setLocale(_list[_selected_index].mobile_app_code);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Main(
           go_back: false,
         );
@@ -152,7 +152,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

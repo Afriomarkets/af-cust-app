@@ -26,7 +26,7 @@ class StoreCard extends StatelessWidget {
     
     return InkWell(
       onTap: onTap ?? () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
           return SellerDetails(id: store.id ?? 0);
         }));
       },

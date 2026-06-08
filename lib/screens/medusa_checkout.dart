@@ -248,7 +248,7 @@ class _MedusaCheckoutState extends State<MedusaCheckout> {
             centerTitle: true,
             leading: _currentStep < 4
                 ? IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
                     onPressed: _handleBack,
                   )
                 : const SizedBox(),

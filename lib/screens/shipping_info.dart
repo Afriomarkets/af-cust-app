@@ -139,7 +139,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
     ToastComponent.showDialog(
         addressUpdateInCartResponse.message ?? "", context);
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return Checkout();
     })).then((value) {
       onPopped(value);
@@ -181,7 +181,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                       child: Center(
                           child: InkWell(
                         onTap: () {
-                          Navigator.push(context,
+                          Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(builder: (context) {
                             return Address(
                               from_shipping_info: true,
@@ -218,7 +218,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

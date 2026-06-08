@@ -233,7 +233,7 @@ class _OrderListState extends State<OrderList> {
         onPopInvoked: (didPop) async {
           if (didPop) return;
           if (widget.from_checkout) {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
+            Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
               return Main();
             }));
           } else {
@@ -412,10 +412,10 @@ class _OrderListState extends State<OrderList> {
         children: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.arrow_back, color: MyTheme.primaryText(context)),
+              icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.primaryText(context)),
               onPressed: () {
                 if (widget.from_checkout) {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                     return Main();
                   }));
                 } else {
@@ -479,7 +479,7 @@ class _OrderListState extends State<OrderList> {
                   padding: const EdgeInsets.only(bottom: 4.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
+                      Navigator.of(context, rootNavigator: true).push(
                           MaterialPageRoute(builder: (context) {
                         return OrderDetails(
                           id: _orderList[index].id,

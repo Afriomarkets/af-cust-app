@@ -128,7 +128,7 @@ class _SellerProductsState extends State<SellerProducts> {
         ),
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+        icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Container(

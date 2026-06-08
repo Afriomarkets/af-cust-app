@@ -191,8 +191,7 @@ class _ExplorerImmersiveViewState extends State<ExplorerImmersiveView>
     }
 
     widget.onContextChanged(newCtx);
-    Navigator.push(
-      context,
+    Navigator.of(context, rootNavigator: true).push(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 420),
         reverseTransitionDuration: const Duration(milliseconds: 320),

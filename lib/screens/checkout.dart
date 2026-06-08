@@ -197,7 +197,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return StripeScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -213,7 +213,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaypalScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -230,7 +230,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return RazorpayScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -246,7 +246,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaystackScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -262,7 +262,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return IyzicoScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -278,7 +278,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return BkashScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -294,7 +294,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return NagadScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -310,7 +310,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return SslCommerzScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -326,7 +326,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return FlutterwaveScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -342,7 +342,7 @@ class _CheckoutState extends State<Checkout> {
         return;
       }
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return PaytmScreen(
           amount: _grandTotalValue,
           payment_type: "cart_payment",
@@ -360,7 +360,7 @@ class _CheckoutState extends State<Checkout> {
       pay_by_manual_payment();
     } else if (_selected_payment_method == "manual_payment" &&
         widget.manual_payment_from_order_details == true) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return OfflineScreen(
           order_id: widget.order_id,
           payment_type: "manual_payment",
@@ -384,7 +384,7 @@ class _CheckoutState extends State<Checkout> {
       return;
     }
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return OrderList(from_checkout: true);
     }));
   }
@@ -399,7 +399,7 @@ class _CheckoutState extends State<Checkout> {
       return;
     }
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return OrderList(from_checkout: true);
     }));
   }
@@ -414,7 +414,7 @@ class _CheckoutState extends State<Checkout> {
       return;
     }
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return OrderList(from_checkout: true);
     }));
   }
@@ -822,7 +822,7 @@ class _CheckoutState extends State<Checkout> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

@@ -126,7 +126,7 @@ class _MarketExplorerState extends State<MarketExplorer> {
       surfaceTintColor: Colors.white,
       elevation: 0,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+        icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Text(
@@ -262,7 +262,7 @@ class _MarketExplorerState extends State<MarketExplorer> {
                       index % MyTheme.marketCardColors.length],
                   onTap: () {
                     // Navigate to filter view for this specific market's sellers
-                    Navigator.push(context,
+                    Navigator.of(context, rootNavigator: true).push(
                         MaterialPageRoute(builder: (context) {
                       return Filter(
                           selected_filter:

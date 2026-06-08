@@ -69,7 +69,7 @@ class _OtpState extends State<Otp> {
     } else {
       ToastComponent.showDialog(confirmCodeResponse.message ?? "", context);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Login();
       }));
     }

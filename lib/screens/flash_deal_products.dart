@@ -91,7 +91,7 @@ class _FlashDealProductsState extends State<FlashDealProducts> {
           preferredSize: Size.fromHeight(4.0)),*/
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),

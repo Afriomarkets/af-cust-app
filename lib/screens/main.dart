@@ -33,10 +33,25 @@ class _MainState extends State<Main> {
     Profile()
   ];
 
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+  ];
+
   void onTapped(int i) {
-    setState(() {
-      _currentIndex = i;
-    });
+    if (i == 2) {
+      return;
+    }
+    if (_currentIndex == i) {
+      _navigatorKeys[i].currentState?.popUntil((route) => route.isFirst);
+    } else {
+      setState(() {
+        _currentIndex = i;
+      });
+    }
   }
 
   void initState() {
@@ -50,15 +65,44 @@ class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: widget.go_back,
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final navigator = _navigatorKeys[_currentIndex].currentState;
+        if (navigator != null && navigator.canPop()) {
+          navigator.pop();
+        } else {
+          if (_currentIndex != 0) {
+            setState(() {
+              _currentIndex = 0;
+            });
+          } else {
+            if (widget.go_back) {
+              SystemNavigator.pop();
+            }
+          }
+        }
+      },
       child: Directionality(
         textDirection: app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
         child: AnimatedSidebarScaffold(
           child: Scaffold(
-            extendBody: true,
-            body: MyTheme.brandBackground(
-              context: context,
-              child: _children[_currentIndex],
+            extendBody: false,
+            body: IndexedStack(
+              index: _currentIndex,
+              children: _children.asMap().entries.map((entry) {
+                return Navigator(
+                  key: _navigatorKeys[entry.key],
+                  onGenerateRoute: (routeSettings) {
+                    return MaterialPageRoute(
+                      builder: (context) => MyTheme.brandBackground(
+                        context: context,
+                        child: entry.value,
+                      ),
+                    );
+                  },
+                );
+              }).toList(),
             ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
@@ -98,23 +142,19 @@ class _MainState extends State<Main> {
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.transparent,
+            color: MyTheme.isDark(context) ? MyTheme.darkCard : Colors.white,
             clipBehavior: Clip.antiAlias,
-            elevation: 0,
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                onTap: onTapped,
-                currentIndex: _currentIndex,
-                backgroundColor: MyTheme.isDark(context) 
-                    ? MyTheme.darkCard.withOpacity(0.8) 
-                    : Colors.white.withOpacity(0.85),
-                selectedItemColor: MyTheme.primary(context),
-                unselectedItemColor: MyTheme.secondaryText(context),
-                selectedFontSize: 11,
-                unselectedFontSize: 11,
-                elevation: 0,
+            elevation: 10,
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              onTap: onTapped,
+              currentIndex: _currentIndex,
+              backgroundColor: Colors.transparent,
+              selectedItemColor: MyTheme.primary(context),
+              unselectedItemColor: MyTheme.secondaryText(context),
+              selectedFontSize: 11,
+              unselectedFontSize: 11,
+              elevation: 0,
                 items: [
                   BottomNavigationBarItem(
                       icon: Image.asset(
@@ -170,7 +210,6 @@ class _MainState extends State<Main> {
                 ],
               ),
             ),
-          ),
         ),
       ),
     ),

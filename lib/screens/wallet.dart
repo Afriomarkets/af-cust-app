@@ -110,7 +110,7 @@ class _WalletState extends State<Wallet> {
     var amount = double.parse(amount_String);
 
     Navigator.of(context, rootNavigator: true).pop();
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
       return RechargeWallet(amount: amount);
     }));
   }
@@ -122,7 +122,7 @@ class _WalletState extends State<Wallet> {
       onPopInvoked: (didPop) async {
         if (didPop) return;
         if (widget.from_recharge) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
             return Main();
           }));
         } else {
@@ -210,10 +210,10 @@ class _WalletState extends State<Wallet> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.dark_grey),
           onPressed: () {
             if (widget.from_recharge) {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
                 return Main();
               }));
             } else {

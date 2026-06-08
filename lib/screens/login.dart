@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
 
       if (!mounted) return;
       ToastComponent.showDialog('Welcome back!', context);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Main();
       }));
     }
@@ -127,7 +127,7 @@ class _LoginState extends State<Login> {
     } else {
       ToastComponent.showDialog(loginResponse.message!, context);
       AuthHelper().setUserData(loginResponse);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
         return Main();
       }));
     }
@@ -165,7 +165,7 @@ class _LoginState extends State<Login> {
         } else {
           ToastComponent.showDialog(loginResponse.message!, context);
           AuthHelper().setUserData(loginResponse);
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
+          Navigator.of(context, rootNavigator: true).push( MaterialPageRoute(builder: (context) {
             return Main();
           }));
         }
@@ -401,7 +401,7 @@ class _LoginState extends State<Login> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(context,
+                                  Navigator.of(context, rootNavigator: true).push(
                                       MaterialPageRoute(builder: (context) {
                                     return PasswordForget();
                                   }));
@@ -475,7 +475,7 @@ class _LoginState extends State<Login> {
                                     fontWeight: FontWeight.w700),
                               ),
                               onPressed: () {
-                                Navigator.push(context,
+                                Navigator.of(context, rootNavigator: true).push(
                                     MaterialPageRoute(builder: (context) {
                                   return Registration();
                                 }));

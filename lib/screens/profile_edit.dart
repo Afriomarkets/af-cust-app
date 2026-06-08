@@ -180,7 +180,7 @@ class _ProfileEditState extends State<ProfileEdit> {
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.primaryText(context)),
+          icon: Icon(Icons.arrow_back_ios_new, size: 20, color: MyTheme.primaryText(context)),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
